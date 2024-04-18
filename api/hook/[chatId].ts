@@ -22,18 +22,18 @@ function buildOneIPResult(type: string, data: IP) {
 
 export default async (req: VercelRequest, res: VercelResponse) => {
     const chatId = req.query['chatId'] as string
-    let ddnsReq = req.body as DDNSRequest
+    let ddnsReq = JSON.stringify(req.body)
     
-    let text = ""
-    if (ddnsReq.ipv4) {
-        text += buildOneIPResult('IPv4', ddnsReq.ipv4)
-    }
+    // let text = ""
+    // if (ddnsReq.ipv4) {
+    //     text += buildOneIPResult('IPv4', ddnsReq.ipv4)
+    // }
 
-    if (ddnsReq.ipv6) {
-        text += buildOneIPResult('IPv6', ddnsReq.ipv6)
-    }
+    // if (ddnsReq.ipv6) {
+    //     text += buildOneIPResult('IPv6', ddnsReq.ipv6)
+    // }
 
-    await bot.api.sendMessage(chatId, text)
+    await bot.api.sendMessage(chatId, ddnsReq)
 
     res.json({
         msg: 'works'
