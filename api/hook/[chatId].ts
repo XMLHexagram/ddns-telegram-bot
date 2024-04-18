@@ -1,5 +1,9 @@
 import { VercelRequest, VercelResponse } from '@vercel/node'
-import { bot } from '../bot'
+import { Bot } from 'grammy'
+
+const { BOT_TOKEN, BOT_URL } = process.env
+
+export const bot = new Bot(BOT_TOKEN)
 
 type IP = {
     result: string
