@@ -2,6 +2,7 @@
   "name": "ddns-telegram-bot",
   "version": "1.0.0",
   "description": "A telegram bot for ddns-go",
+  "type": "module",
   "scripts": {},
   "repository": {
     "type": "git",
